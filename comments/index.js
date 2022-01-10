@@ -62,7 +62,7 @@ app.post('/posts/:id/comments', async function (req, res) {
     
 }) 
 
-app.post('/events', (req, res) => {
+app.post('/events', async (req, res) => {
     console.log('Received Event:', req.body.type);
 
     const { type, data } = req.body;
