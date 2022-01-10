@@ -18,7 +18,7 @@ app.post('/events', async (req, res) => {
             data: {
                 id: data.id,
                 postId: data.postId,
-                status,
+                status: status,
                 content: data.content,
             }
         })

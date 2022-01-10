@@ -45,7 +45,7 @@ app.post('/posts/:id/comments', async function (req, res) {
     // res.status(201).send(commentsByPostId[existId]);
     const comments = commentsByPostId[req.params.id] || [];
 
-    comments.push({ id: commentId, content: content, status: pending });
+    comments.push({ id: commentId, content: content, status: 'approved' });
     commentsByPostId[req.params.id] = comments;
 
     await axios.post('http://localhost:4005/events', {
@@ -54,7 +54,7 @@ app.post('/posts/:id/comments', async function (req, res) {
             id: commentId,
             content,
             postId: req.params.id,
-            status: 'pending',
+            status: 'approved',
         }
     })
 
